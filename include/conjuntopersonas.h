@@ -32,6 +32,8 @@ class conjuntopersonas{
 			return per.size();
 		}
 
+		//Añadir operator [] const y no const
+
 		void borra_persona(int indice);
 
 };
