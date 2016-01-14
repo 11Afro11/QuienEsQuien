@@ -33,6 +33,12 @@ class conjuntopersonas{
 		}
 
 		//Añadir operator [] const y no const
+		persona& operator [](int indice){
+			return get_persona(indice);
+		}
+		const persona& operator[](int indice){
+			return get_persona(indice);
+		}
 
 		void borra_persona(int indice);
 
