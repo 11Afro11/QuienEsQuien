@@ -730,17 +730,23 @@
     
 
 
-     iter_preorden begin();
-     const_iter_preorden begin()const  {} 
+     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: iter_preorden begin(){
+      return iter_preorden(laraiz);
+     }
+     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: const_iter_preorden begin()const  {
+      return const_iter_preorden(laraiz);
+     } 
      
      
     /**
      * @brief Inicializa un iterador al nodo nulo con la raiz del arbol. Nivel -1
      */
     template<class T>
-     iter_preorden end();
-     const_iter_preorden end()const{
-      
+     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::iter_preorden end(){
+      return iter_preorden(ArbolGeneral<T>::Nodo());
+     }
+     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::const_iter_preorden end()const{
+      return const_iter_preorden(ArbolGeneral<T>::Nodo());      
      }
 
     
