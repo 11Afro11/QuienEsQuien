@@ -1,5 +1,12 @@
-
-    /**
+    ////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    ///////////////Clae arbol general/////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+/**
       * @brief Destruye el subárbol
       * @param n Nodo a destruir, junto con sus descendientes
       *
@@ -528,149 +535,192 @@
       return out;
     }
     
-    
+    ////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    ///////////////Iterador no constante//////////////////////////
+    /////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
     
     /** 
      * @brief TDA. Iterador del ArbolGeneral  en preorden
      * */
-	 /**
-	  * @brief Constructor por defecto
-	  * 
-	  * */
+   /**
+    * @brief Constructor por defecto
+    * 
+    * */
    template<class T>
-	 ArbolGeneral<T>::iter_preorden::iter_preorden(){
+   ArbolGeneral<T>::iter_preorden::iter_preorden(){
       it = typename ArbolGeneral<T>::Nodo();
       raiz = it;
       level = 0;
    }
-	 
-	 /**
-	  * @brief Obtiene la etiqueta del nodo
-	  * 
-	  * */
+   
+   /**
+    * @brief Obtiene la etiqueta del nodo
+    * 
+    * */
+   T& ArbolGeneral<T>::iter_preorden:: operator*(){
+    return it->elemento;
+   }
+   
+   
+   /**
+    * @brief Obtiene el nivel del nodo
+    * 
+    * */
   template<class T>
-	 
-	 Tbase & operator*();
-	 
-	 
-	 /**
-	  * @brief Obtiene el nivel del nodo
-	  * 
-	  * */
+   
+   int ArbolGeneral<T>::iter_preorden :: getlevel()const{
+    return level;
+   }
+     
+   /**
+    * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
+    * 
+    * */
+   }
   template<class T>
-	 
-	 
-	 int getlevel()const;
-	   
-	 /**
-	  * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
-	  * 
-	  * */
+   iter_preorden & ArbolGeneral<T>::iter_preorden :: operator ++(){
+         if (it->izqda!=0){
+        it= it->izqda;
+        level = level+1; 
+      } 
+      else{
+    if (it->drcha!=0)
+      it=it->drcha;
+    else{
+     if (it->padre!=0){
+       while  (it->padre!=0 && it->drcha==0){
+        it=it->padre;
+        level = level-1;
+       }
+       it=it->drcha;
+        
+     }
+     else{
+       it=0;
+       level = -1;
+     }
+    }  
+      }
+      return *this;
+   }  
+   /**
+    * @brief Compara dos iteradores
+    * @param i: iterador con el  que se compara
+    * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
+    * */
   template<class T>
-	 iter_preorden & operator ++(){
-	       if (it->izqda!=0){
-	      it= it->izqda;
-	      level = level+1; 
-	    } 
-	    else{
-		if (it->drcha!=0)
-		  it=it->drcha;
-		else{
-		 if (it->padre!=0){
-		   while  (it->padre!=0 && it->drcha==0){
-		    it=it->padre;
-		    level = level-1;
-		   }
-		   it=it->drcha;
-		    
-		 }
-		 else{
-		   it=0;
-		   level = -1;
-		 }
-		}	 
-	    }
-	    return *this;
-	 }  
-	 /**
-	  * @brief Compara dos iteradores
-	  * @param i: iterador con el  que se compara
-	  * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
-	  * */
+
+   bool ArbolGeneral<T>::iter_preorden :: operator == (const iter_preorden &i){
+    return it == i.it;
+   }
+        
+   /**
+    * @brief Compara dos iteradores
+    * @param i: iterador con el  que se compara
+    * @return true si los dos iteradores son diferentes (la raiz o  el nodo son diferentes). False en caso contrario
+    * */
   template<class T>
-	 bool operator == (const iter_preorden &i);
-	 	    
-	 /**
-	  * @brief Compara dos iteradores
-	  * @param i: iterador con el  que se compara
-	  * @return true si los dos iteradores son diferentes (la raiz o  el nodo son diferentes). False en caso contrario
-	  * */
+   bool ArbolGeneral<T>::iter_preorden::operator != (const iter_preorden &i){
+    return !(it == i.it);
+   }
+   ///////////////////////////////////////////////////////////////////////////////////
+   //////////////////////////////////////////////////////////////////////////////////
+   /////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////
+   ///////////////////////Iterador constante/////////////////////////////////////
+   /////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////
   template<class T>
-	 
-	 
-	 bool operator != (const iter_preorden &i);
-	 
-	 
-	 friend class ArbolGeneral;
-    };
-    class const_iter_preorden{
-       private:
-	  const nodo * it;
-	  const nodo * raiz;
-	 int level;
-       public:
-	 /**
-	  * @brief Constructor por defecto
-	  * 
-	  * */
+   ArbolGeneral::const_iter_preorden :: const_iter_preorden(){
+    it = 0;
+    raiz = 0;
+    level = -1;
+   }
+   /**
+    * @brief Obtiene la etiqueta del nodo
+    * 
+    * */
   template<class T>
-	 const_iter_preorden();
-	 
-	 /**
-	  * @brief Obtiene la etiqueta del nodo
-	  * 
-	  * */
+   
+   const T& ArbolGeneral::const_iter_preorden::operator*() {
+    return it->elemento;
+   }
+     
+   
+   /**
+    * @brief Obtiene el nivel del nodo
+    * 
+    * */
+   }
   template<class T>
-	 
-	 const Tbase & operator*();
-	 
-	 
-	 /**
-	  * @brief Obtiene el nivel del nodo
-	  * 
-	  * */
+   
+
+   int ArbolGeneral::const_iter_preorden :: getlevel()const{
+    return level;
+   }
+     
+   /**
+    * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
+    * 
+    * */
+   }
   template<class T>
-	 
-	 
-	 int getlevel()const;
-	   
-	 /**
-	  * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
-	  * 
-	  * */
+   /**
+    * @brief Compara dos iteradores
+    * @param i: iterador con el con que se comparación
+    * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
+    * */
   template<class T>
-	 const_iter_preorden & operator ++();
-	    
-	 /**
-	  * @brief Compara dos iteradores
-	  * @param i: iterador con el con que se comparación
-	  * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
-	  * */
+
+   bool ArbolGeneral::const_iter_preorden:: operator == (const const_iter_preorden &i){
+    return it == i.it;
+   }
+        
+   /**
+    * @brief Compara dos iteradores
+    * @param i: iterador con el con que se comparación
+    * @return true si los dos iteradores son diferentes (la raiz o  el nodo son diferentes). False en caso contrario
+    * */
   template<class T>
-	 bool operator == (const const_iter_preorden &i);
-	 	    
-	 /**
-	  * @brief Compara dos iteradores
-	  * @param i: iterador con el con que se comparación
-	  * @return true si los dos iteradores son diferentes (la raiz o  el nodo son diferentes). False en caso contrario
-	  * */
-  template<class T>
-	 
-	 
-	 bool operator != (const const_iter_preorden &i);
-	 
-	 
-	 friend class ArbolGeneral;
+   
+
+   bool ArbolGeneral::const_iter_preorden:: operator != (const const_iter_preorden &i){
+    return!(it == i.it);
+   }
+   template<class T>
+   const_iter_preorden & ArbolGeneral::const_iter_preorden :: operator ++(){
+         if (it->izqda!=0){
+        it= it->izqda;
+        level = level+1; 
+      } 
+      else{
+    if (it->drcha!=0)
+      it=it->drcha;
+    else{
+     if (it->padre!=0){
+       while  (it->padre!=0 && it->drcha==0){
+        it=it->padre;
+        level = level-1;
+       }
+       it=it->drcha;
+        
+     }
+     else{
+       it=0;
+       level = -1;
+     }
+    }  
+      }
+      return *this;
+   }  
+   
+   friend class ArbolGeneral;
     };
     
     /**
@@ -678,8 +728,10 @@
      */
     template<class T>
     
+
+
      iter_preorden begin();
-     const_iter_preorden begin()const 	
+     const_iter_preorden begin()const  {} 
      
      
     /**
@@ -687,12 +739,9 @@
      */
     template<class T>
      iter_preorden end();
-     const_iter_preorden end()const 
+     const_iter_preorden end()const{
+      
+     }
+
     
 };
-
-#include "ArbolGeneral.cpp"
-
-
-
-#endif
