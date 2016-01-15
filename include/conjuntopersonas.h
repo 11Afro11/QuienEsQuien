@@ -41,6 +41,7 @@ class conjuntopersonas{
 		}
 
 		void borra_persona(int indice);
+		void del (persona p);
 
 };
 ostream& operator << (ostream &flujo, conjuntopersonas &conj);

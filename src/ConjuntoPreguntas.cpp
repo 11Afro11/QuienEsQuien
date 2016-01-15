@@ -52,6 +52,22 @@ private:
 		return preguntas.size();
 	}
 
+	void ConjuntoPreguntas::Borra_preg(int indice){
+		preguntas.erase(indice);
+	}
+	void del(Pregunta p){
+		//COmpribar el indice de la pregunta
+		bool notfound = true;
+		int i;
+		for(i = 0; i < preguntas.size() && notfound; i++){
+			if(preguntas[i] == p){
+				notfound = false;
+			}
+		}
+		if(!notfound){
+			preguntas.erase(i);
+		}
+	}
 
 //};
 

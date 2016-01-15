@@ -90,6 +90,12 @@ public:
 **/
 	friend ostream & operator << (ostream & os, ConjuntoPreguntas & conj);
 
+/**
+*@brief Borra una pregunta del conjunto de preguntas
+*@param indice de la pregunta que se desea borrar
+**/
+void Borra_preg(int indice);
+void del(Pregunta p);
 };
 /**
 * @brief Sobrecarga del operador de entrada

@@ -27,6 +27,19 @@ void conjuntopersonas :: borra_persona(int indice){
 		per.erase(per.begin() + indice);
 	}
 }
+void conjuntopersonas :: del(persona p){
+	//Busca persona
+	bool notfound = true;
+	int i;
+	for(i = 0; i < per.size() && notfound; i++){
+		if(p == per[i]){
+			notfound = false;
+		}
+	}
+	if(!notfound){
+		per.erase(i);
+	}
+}
 
 ostream& operator << (ostream &flujo, conjuntopersonas &conj){
 	
