@@ -249,7 +249,7 @@
       //!!!!!!!!!!!!!!!!!!!!!!!!!1
       //Faltaba poner ArbolGeneral<T>:: antes de Nodo
     template<class T>
-    ArbolGeneral<T>::Nodo ArbolGeneral<T> :: raiz() const{
+    typename ArbolGeneral<T>::Nodo ArbolGeneral<T> :: raiz() const{
       return laraiz;
     }
     
@@ -264,7 +264,7 @@
       * La operación se realiza en tiempo O(1).
       */
     template<class T>
-    Nodo ArbolGeneral<T> :: hijomasizquierda(const Nodo n) const{
+    Nodo ArbolGeneral<T>:: hijomasizquierda(const Nodo n) const{
       assert(n != 0);
       return n->izqda;
     }
