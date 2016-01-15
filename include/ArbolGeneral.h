@@ -434,8 +434,8 @@ class ArbolGeneral{
       * la lectura se puede consultar en la función de salida.
       * @see lee_arbol
       */
-    //template<class T> 
-    friend std::istream& operator>>(std::istream& in, ArbolGeneral<T>& v);
+    template<class U> 
+    friend std::istream& operator>>(std::istream& in, ArbolGeneral<U>& v);
     /**
       * @brief Operador de inserción en flujo
       * @param out Stream de salida
@@ -451,8 +451,8 @@ class ArbolGeneral{
       *
       * @see escribe_arbol
       */
-    //template<class T>
-    friend std::ostream& operator<< (std::ostream& out, const ArbolGeneral<T>& v);
+    template<class U>
+    friend std::ostream& operator<< (std::ostream& out, const ArbolGeneral<U>& v);
     
     
     

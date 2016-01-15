@@ -264,7 +264,7 @@
       * La operación se realiza en tiempo O(1).
       */
     template<class T>
-    Nodo ArbolGeneral<T>:: hijomasizquierda(const Nodo n) const{
+     typename ArbolGeneral<T>::Nodo ArbolGeneral<T>:: hijomasizquierda(const typename ArbolGeneral<T>::Nodo n) const{
       assert(n != 0);
       return n->izqda;
     }
@@ -280,7 +280,8 @@
       * La operación se realiza en tiempo O(1).
       */
     template<class T>
-    Nodo ArbolGeneral<T> :: hermanoderecha(const Nodo n) const{
+
+    typename ArbolGeneral<T>::Nodo ArbolGeneral<T>:: hermanoderecha(const Nodo n) const{
       assert(n != 0);
       return n->drcha;
     }
@@ -295,7 +296,7 @@
       * La operación se realiza en tiempo O(1).
       */
     template<class T>
-    Nodo ArbolGeneral<T> :: padre(const Nodo n) const{
+    typename ArbolGeneral<T>::Nodo ArbolGeneral<T>:: padre(const Nodo n) const{
       assert(n != 0);
       return n->padre;
     }
@@ -364,7 +365,7 @@
     template<class T>
     void ArbolGeneral<T> :: podar_hijomasizquierda(Nodo n, ArbolGeneral<T>& dest){
       assert(n != 0);
-      Nodo *res = 0;
+      Nodo res = 0;
       if(n->izqda != 0){
         res = n->izqda;
         n->izqda = res->drcha;
@@ -585,39 +586,6 @@
    }
      
    /**
-    * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
-    * 
-    * */
-    //////////////////
-   //}    *********************
-   /////////////////////// 
-  template<class T>
-   iter_preorden & ArbolGeneral<T>::iter_preorden :: operator ++(){
-         if (it->izqda!=0){
-        it= it->izqda;
-        level = level+1; 
-      } 
-      else{
-    if (it->drcha!=0)
-      it=it->drcha;
-    else{
-     if (it->padre!=0){
-       while  (it->padre!=0 && it->drcha==0){
-        it=it->padre;
-        level = level-1;
-       }
-       it=it->drcha;
-        
-     }
-     else{
-       it=0;
-       level = -1;
-     }
-    }  
-      }
-      return *this;
-   }  
-   /**
     * @brief Compara dos iteradores
     * @param i: iterador con el  que se compara
     * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
@@ -711,7 +679,7 @@
     return!(it == i.it);
    }
    template<class T>
-   const_iter_preorden & ArbolGeneral::const_iter_preorden :: operator ++(){
+   typename ArbolGeneral<T>::const_iter_preorden & ArbolGeneral<T>::const_iter_preorden :: operator ++(){
          if (it->izqda!=0){
         it= it->izqda;
         level = level+1; 
@@ -749,10 +717,11 @@
     
 
 
-     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: iter_preorden begin(){
+     typename ArbolGeneral<T>::iter_preorden ArbolGeneral<T> :: begin(){
       return iter_preorden(laraiz);
      }
-     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: const_iter_preorden begin()const  {
+     template <class T>
+     typename ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: begin()const  {
       return const_iter_preorden(laraiz);
      } 
      
@@ -761,12 +730,13 @@
      * @brief Inicializa un iterador al nodo nulo con la raiz del arbol. Nivel -1
      */
     template<class T>
-     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::iter_preorden end(){
+     typename ArbolGeneral<T>::iter_preorden ArbolGeneral<T>::end(){
       return iter_preorden(ArbolGeneral<T>::Nodo());
      }
-     ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::const_iter_preorden end()const{
+     template <class T>
+     typename ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::end()const{
       return const_iter_preorden(ArbolGeneral<T>::Nodo());      
      }
 
     
-};
+//};
