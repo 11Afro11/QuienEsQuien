@@ -434,7 +434,7 @@ class ArbolGeneral{
       * la lectura se puede consultar en la función de salida.
       * @see lee_arbol
       */
-    template<class T> 
+    //template<class T> 
     friend std::istream& operator>>(std::istream& in, ArbolGeneral<T>& v);
     /**
       * @brief Operador de inserción en flujo
@@ -451,7 +451,7 @@ class ArbolGeneral{
       *
       * @see escribe_arbol
       */
-    template<class T>
+    //template<class T>
     friend std::ostream& operator<< (std::ostream& out, const ArbolGeneral<T>& v);
     
     
@@ -595,14 +595,14 @@ class ArbolGeneral{
      */
     
      iter_preorden begin();
-     const_iter_preorden begin()const 	
+     const_iter_preorden begin()const; 	
      
      
     /**
      * @brief Inicializa un iterador al nodo nulo con la raiz del arbol. Nivel -1
      */
      iter_preorden end();
-     const_iter_preorden end()const 
+     const_iter_preorden end()const; 
     
 };
 

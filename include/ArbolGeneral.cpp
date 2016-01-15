@@ -127,10 +127,13 @@
       * @see escribe_arbol
       */
     template<class T>
-    void ArebolGeneral<T> :: lee_arbol(std::istream& in, nodo *& nod){
+    void ArbolGeneral<T> :: lee_arbol(std::istream& in, nodo *& nod){
       char letra;
       in >> letra;
-      if(c == 'n'){
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //He sustituido c por letra
+      //if(c == 'n')
+      if(letra == 'n'){
         nod = new nodo;
         in >> nod->etiqueta;
         lee_arbol(in, nod->izqda);
@@ -210,7 +213,7 @@
       * elementos de \e v.
       */
     template<class T>
-    ArbolGeneral<T>& ArbolGeneral<T> :: operator = (const ArbolGeneral<Tbase> &v){
+    ArbolGeneral<T>& ArbolGeneral<T> :: operator = (const ArbolGeneral<T> &v){
       if(this != &v){
         destruir(laraiz);
         copiar(laraiz, v.laraiz);
@@ -242,8 +245,11 @@
       * Devuelve el nodo raíz, que es 0 (nulo) si el árbol está vacío.
       * La operación se realiza en tiempo O(1).
       */
+
+      //!!!!!!!!!!!!!!!!!!!!!!!!!1
+      //Faltaba poner ArbolGeneral<T>:: antes de Nodo
     template<class T>
-    Nodo ArbolGeneral<T> :: raiz() const{
+    ArbolGeneral<T>::Nodo ArbolGeneral<T> :: raiz() const{
       return laraiz;
     }
     
@@ -510,7 +516,7 @@
       * @see lee_arbol
       */
     template<class T>
-    friend std::istream& operator>>(std::istream& in, ArbolGeneral<T>& v){
+    std::istream& operator>>(std::istream& in, ArbolGeneral<T>& v){
       v.lee_arbol(in, v.laraiz);
       return in;
     }
@@ -530,7 +536,7 @@
       * @see escribe_arbol
       */
     template<class T>
-    friend std::ostream& operator<< (std::ostream& out, const ArbolGeneral<T>& v){
+    std::ostream& operator<< (std::ostream& out, const ArbolGeneral<T>& v){
       v.escribe_arbol(out, v.laraiz);
       return out;
     }
@@ -562,6 +568,7 @@
     * @brief Obtiene la etiqueta del nodo
     * 
     * */
+     template<class T>
    T& ArbolGeneral<T>::iter_preorden:: operator*(){
     return it->elemento;
    }
@@ -581,7 +588,9 @@
     * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
     * 
     * */
-   }
+    //////////////////
+   //}    *********************
+   /////////////////////// 
   template<class T>
    iter_preorden & ArbolGeneral<T>::iter_preorden :: operator ++(){
          if (it->izqda!=0){
@@ -637,7 +646,10 @@
    /////////////////////////////////////////////////////////////////////////////
    ////////////////////////////////////////////////////////////////////////////
   template<class T>
-   ArbolGeneral::const_iter_preorden :: const_iter_preorden(){
+   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   //Faltaba poner <T> al lado de ArbolGeneral
+   //ArbolGeneral::const_iter_preorden :: const_iter_preorden()
+   ArbolGeneral<T>::const_iter_preorden :: const_iter_preorden(){
     it = 0;
     raiz = 0;
     level = -1;
@@ -647,8 +659,9 @@
     * 
     * */
   template<class T>
-   
-   const T& ArbolGeneral::const_iter_preorden::operator*() {
+   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //Faltaba el <T> al lado de ArbolGeneral
+   const T& ArbolGeneral<T>::const_iter_preorden::operator*() {
     return it->elemento;
    }
      
@@ -657,11 +670,12 @@
     * @brief Obtiene el nivel del nodo
     * 
     * */
-   }
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   //}
   template<class T>
-   
-
-   int ArbolGeneral::const_iter_preorden :: getlevel()const{
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //Faltaba el <T>
+   int ArbolGeneral<T>::const_iter_preorden :: getlevel()const{
     return level;
    }
      
@@ -669,16 +683,18 @@
     * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
     * 
     * */
-   }
-  template<class T>
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   //}
+  //template<class T>
    /**
     * @brief Compara dos iteradores
     * @param i: iterador con el con que se comparación
     * @return true si los dos iteradores son iguales (la raiz y el nodo son iguales). False en caso contrario
     * */
   template<class T>
-
-   bool ArbolGeneral::const_iter_preorden:: operator == (const const_iter_preorden &i){
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //Faltaba el <T>
+   bool ArbolGeneral<T>::const_iter_preorden:: operator == (const const_iter_preorden &i){
     return it == i.it;
    }
         
@@ -689,8 +705,9 @@
     * */
   template<class T>
    
-
-   bool ArbolGeneral::const_iter_preorden:: operator != (const const_iter_preorden &i){
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    //Falta el <T>
+   bool ArbolGeneral<T>::const_iter_preorden:: operator != (const const_iter_preorden &i){
     return!(it == i.it);
    }
    template<class T>
@@ -719,10 +736,12 @@
       }
       return *this;
    }  
-   
-   friend class ArbolGeneral;
-    };
+   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   //Las 2 lineas de abajo sobraban
+   //friend class ArbolGeneral;
+    //};
     
+
     /**
      * @brief Inicializa un iterador a la raiz del arbol. Nivel -1
      */
