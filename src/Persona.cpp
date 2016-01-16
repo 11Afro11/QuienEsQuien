@@ -1,5 +1,5 @@
-//personas.cpp
-#include "personas.h"
+//Persona.cpp
+#include "Persona.h"
 
 istream& operator >> (istream &flujo, persona &p){
 	//Como antes de cada nombre hay una linea con '#'

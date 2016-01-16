@@ -1,34 +1,34 @@
-//conjuntopersonas.cpp
+//ConjuntoPersonas.cpp
   ///////////////////////////////////////
  ////////REVISAR LOS INCLUDES///////////
 ///////////////////////////////////////
 
-#include "conjuntopersonas.h"
+#include "ConjuntoPersonas.h"
 #include <iostream>
 
-conjuntopersonas::conjuntopersonas(vector<persona> v){
+ConjuntoPersonas::ConjuntoPersonas(vector<Persona> v){
 	per = v;
 }
-void conjuntopersonas::aniade_persona(persona p){
+void ConjuntoPersonas::aniade_Persona(Persona p){
 	per.push_back(p);
 }
-string conjuntopersonas :: get_name(int indice){
+string ConjuntoPersonas :: get_name(int indice){
 	if(indice >= 0 && indice < per.size()){
 		return per[indice].get_name();
 	}
 }
-string conjuntopersonas :: get_path(int indice){
+string ConjuntoPersonas :: get_path(int indice){
 	if(indice >= 0 && indice < per.size()){
 		return per[indice].get_path();
 	}
 }
-void conjuntopersonas :: borra_persona(int indice){
+void ConjuntoPersonas :: borra_Persona(int indice){
 	if(indice >= 0 && indice < per.size()){
 		per.erase(per.begin() + indice);
 	}
 }
-void conjuntopersonas :: del(persona p){
-	//Busca persona
+void ConjuntoPersonas :: del(Persona p){
+	//Busca Persona
 	bool notfound = true;
 	int i;
 	for(i = 0; i < per.size() && notfound; i++){
@@ -41,18 +41,18 @@ void conjuntopersonas :: del(persona p){
 	}
 }
 
-ostream& operator << (ostream &flujo, conjuntopersonas &conj){
+ostream& operator << (ostream &flujo, ConjuntoPersonas &conj){
 	
 	for(int i = 0; i < conj.get_size(); i++){
-		persona p;
-		p = conj.get_persona(i);
+		Persona p;
+		p = conj.get_Persona(i);
 		flujo << p;
 	}
 }
-istream& operator >> (istream &flujo, conjuntopersonas &conj){
+istream& operator >> (istream &flujo, ConjuntoPersonas &conj){
 	
 	string aux; //Guarda el contenido de una linea del flujo de entrada
-	persona p;
+	Persona p;
 	int n_per = 0;
 	//Hay que situar el flujo en el primer nombre
 
@@ -63,7 +63,7 @@ istream& operator >> (istream &flujo, conjuntopersonas &conj){
 	char n[1];
 	getline(flujo, aux);
 	int i = 0;
-	//Obtener el numero de personajes
+	//Obtener el numero de Personajes
 	cout << aux;
 	while(aux[i] != ' '){
 		
@@ -83,7 +83,7 @@ istream& operator >> (istream &flujo, conjuntopersonas &conj){
 
 		flujo >> p;
 
-		conj.aniade_persona(p);
+		conj.aniade_Persona(p);
 	}	
 	
 }

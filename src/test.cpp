@@ -4,9 +4,9 @@
 #include <ctime>
 #include <sstream>
 #include "ArbolGeneral.h"
-#include "Personas.h"
-#include "QuitaComentarios.h"
-#include "Preguntas.h"
+#include "ConjuntoPersonas.h"
+// #include "QuitaComentarios.h"
+#include "ConjuntoPreguntas.h"
 
 using namespace std;
   
