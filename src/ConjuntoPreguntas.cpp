@@ -1,13 +1,13 @@
 #include "ConjuntoPreguntas.h"
 #include <iostream>
-#include <cstring>
+#include <Pregunta>
 using namespace std;
 
 /*
 class ConjuntoPreguntas{
 private:
 
-	string * preguntas
+	Pregunta * preguntas
 		int num_preguntas;
 	int tam;
 */
@@ -25,21 +25,21 @@ private:
 
 
 
-	string & ConjuntoPreguntas::operator [](const int num){
+	Pregunta & ConjuntoPreguntas::operator [](const int num){
 		return preguntas[num];
 	}
 
-	const string & ConjuntoPreguntas::operator [](const int num)const{
+	const Pregunta & ConjuntoPreguntas::operator [](const int num)const{
   		return preguntas[num];
 	}
 /*
-	void ConjuntoPreguntas::Add(const string & nueva){
+	void ConjuntoPreguntas::Add(const Pregunta & nueva){
 
 		preguntas. = nueva;
 		num_preguntas++;
 	}*/
 
-/*	bool ConjuntoPreguntas::Esta(const string & nueva){
+/*	bool ConjuntoPreguntas::Esta(const Pregunta & nueva){
 		for(int i = 0; i < Size(); i++){
 			if(preguntas[i] == nueva){
 				return true;
@@ -72,7 +72,7 @@ private:
 //};
 
 istream & operator >> (istream & is, ConjuntoPreguntas & conj){
-	string preg;
+	Pregunta preg;
 	getline(is, preg)
 	int num;
 	cin >> num;

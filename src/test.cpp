@@ -5,8 +5,10 @@
 #include <sstream>
 #include "ArbolGeneral.h"
 #include "ConjuntoPersonas.h"
+#include "Pregunta.h"
 // #include "QuitaComentarios.h"
 #include "ConjuntoPreguntas.h"
+#include "Persona.h"
 
 using namespace std;
   
@@ -19,17 +21,17 @@ int main(int argc,char *argv[]){
       return 0;
   }
   ifstream f(argv[1],ios::in);
-  QuitaComentarios(f);
+  // QuitaComentarios(f);
   
-  Preguntas ask;
+  Pregunta ask;
   f>>ask;
   
   
-  Personas People;
+  Persona People;
   f>>People;
   
   
-  QuitaComentarios(f);
+  // QuitaComentarios(f);
   string str;
   //Leemos el fichero con el arbol
   
@@ -53,9 +55,9 @@ int main(int argc,char *argv[]){
       ArbolGeneral<int>::Nodo nod = it_tree.GetNodo();
       cout<<"***************\nPersonaje: "<<People.GetPersona(*it_tree).GetNombre()<<endl;
       cout<<"Preguntas y contestaciones son:"<<endl;
-      Preguntas::iterator itask=ask.end(); --itask;
+      Pregunta::iterator itask=ask.end(); --itask;
       
-      Preguntas::iterator itask_prev=ask.end();
+      Pregunta::iterator itask_prev=ask.end();
       string codigo(ask.NumPreguntas(),'0');
       int pos = ask.NumPreguntas()-1;
       do{

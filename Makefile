@@ -1,53 +1,22 @@
-
-
-BIN = bin
-SRC = src
-OBJ = obj
-LIB = lib
+BIN 	= bin
+SRC 	= src
+OBJ 	= obj
+LIB 	= lib
+DOC 	= doc
 INCLUDE = include
-DATOS = datos
-DOC = doc
 
-NAME = QuienEsQuien
+CXX = g++ -Ofast
+CC = gcc -Ofast
 
-all: clean preambulo ejecutables readme $(BIN)/test
+LDFLAGS =
+CPPFLAGS = -Wall -g -c
 
-##################################################################################
-#Ejercicio 1
-##################################################################################
+OBJECTS = test ConjuntoPreguntas ConjuntoPreguntas Pregunta Persona
 
+all: preambulo $(OBJECTS)
 
-$(BIN)/test: $(OBJ)/ConjuntoPersonas.o $(OBJ)/ConjuntoPreguntas.o $(OBJ)/test.o
-	g++ -o $(BIN)/test $(OBJ)/test.o $(OBJ)/ConjuntoPreguntas.o &(OBJ)/ConjuntoPersonas.o
-
-
-$(OBJ)/Pregunta.o: $(SRC)/Pregunta.cpp $(INCLUDE)/Pregunta.h
-	g++ -c -g -o $(OBJ)/Pregunta.o $(SRC)/Pregunta.cpp -I$(INCLUDE)
-
-
-$(OBJ)/ConjuntoPreguntas.o: $(SRC)/ConjuntoPreguntas.cpp $(INCLUDE)/ConjuntoPreguntas.h
-	g++ -c -g -o $(OBJ)/ConjuntoPreguntas.o $(SRC)/ConjuntoPreguntas.cpp -I$(INCLUDE)
-
-$(OBJ)/Persona.o: $(SRC)/Persona.cpp $(INCLUDE)/Persona.h
-	g++ -c -g -o $(OBJ)/Persona.o $(SRC)/Persona.cpp -I$(INCLUDE)
-
-
-$(OBJ)/ConjuntoPersonas.o: $(SRC)/ConjuntoPersonas.cpp $(INCLUDE)/ConjuntoPersonas.h
-	g++ -c -g -o $(OBJ)/ConjuntoPersonas.o $(SRC)/ConjuntoPersonas.cpp -I$(INCLUDE)
-
-
-$(OBJ)/test.o: $(SRC)/test.cpp $(INCLUDE)/ConjuntoPersonas.h $(INCLUDE)/ConjuntoPreguntas.h
-	g++ -c -g -o $(OBJ)/test.o $(SRC)/test.cpp -I$(INCLUDE)
-
-# $(OBJ)/PilaVector.o: $(SRC)/PilaVector.cpp $(INCLUDE)/PilaVector.h
-# 	g++ -c -g -o $(OBJ)/PilaVector.o $(SRC)/PilaVector.cpp -I$(INCLUDE)
-
-
-# $(OBJ)/PilaLista.o: $(SRC)/PilaLista.cpp $(INCLUDE)/PilaLista.h
-# 	g++ -c -g -o $(OBJ)/PilaLista.o $(SRC)/PilaLista.cpp -I$(INCLUDE)
-
-# $(OBJ)/PilaCola.o: $(SRC)/PilaCola.cpp $(INCLUDE)/PilaCola.h
-# 	g++ -c -g -o $(OBJ)/PilaCola.o $(SRC)/PilaCola.cpp -I$(INCLUDE)
+$(OBJECTS):
+	$(CXX) -o $(BIN)/$@ $(SRC)/$@.cpp -I$(INCLUDE) $(LDFLAGS)
 
 #................................................
 preambulo:
@@ -58,7 +27,7 @@ preambulo:
 	@echo ESTRUCTURA DE DATOS
 	@echo Grado en Ingenieria Informatica - Grupo C
 	@echo
-	@echo "("c")" FRANCISCO JAVIER FUENTES BARRAGAN
+	@echo "("c")" FRANCISCO JAVIER FUENTES BARRAGAN Y SERGIO CARRASCO MARQUEZ
 	@echo Escuela Tecnica Superior de Ingenieria Informatica y Telecomunicaciones
 	@echo Universidad de Granada
 	@echo ------------------------------------------------------------
