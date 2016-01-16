@@ -54,17 +54,6 @@ class Persona{
 		void set_info(vector<int> v){
 			info = v;
 		}
-		bool operator == (Persona p){
-			bool iguales = false;
-			if(p.name == name){
-				if(p.path_imagen == path_imagen){
-					if(p.info == info){
-						iguales = true;
-					}
-				}		
-			}
-			return iguales;
-		}
 		
 
 };
