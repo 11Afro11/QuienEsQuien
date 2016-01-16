@@ -86,7 +86,7 @@ private:
 		}*/
 		return true;
 	}
-
+/*
 	istream & operator >> (istream & is, Pregunta & una_pregunta){
 		string texto;
 		string preg;
@@ -99,7 +99,7 @@ private:
 			is >> num;
 			// getline(is, texto);
 			una_pregunta.setPregunta(texto);
-			una_pregunta.setNumResp(num);
+			una_pregunta.setNum(num);
 			for(int i = 0; i < num; i++){
 				is >> letra;
 				getline(is, preg);
@@ -109,11 +109,12 @@ private:
 		}
 		return is;
 	}
-
+*/
+	/*
 	ostream & operator << (ostream & os, const Pregunta & una_pregunta){
 		map<char, string> aux(una_pregunta.getRespuestas());
 		/*Item(os, "./datos/Item.txt", una_pregunta.getPregunta());
-		Enumerate(os, "./datos/BeginItemize.txt");*/
+		Enumerate(os, "./datos/BeginItemize.txt");*//*
 		os << una_pregunta.getPregunta()<<endl;
 		for(map<char, string>::iterator it = aux.begin(); it !=aux.end(); ++it){
 			// Item(os, "./datos/ItemItem.txt", aux[i]);
@@ -123,6 +124,7 @@ private:
 		os << endl;
 		return os;
 	}
+	*/
 /*};
 
 

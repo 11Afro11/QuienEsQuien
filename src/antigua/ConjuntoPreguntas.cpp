@@ -1,13 +1,13 @@
 #include "ConjuntoPreguntas.h"
 #include <iostream>
-#include <cstring>
+#include <Pregunta>
 using namespace std;
 
 /*
 class ConjuntoPreguntas{
 private:
 
-	string * preguntas
+	Pregunta * preguntas
 		int num_preguntas;
 	int tam;
 */
@@ -28,19 +28,18 @@ private:
 	Pregunta & ConjuntoPreguntas::operator [](const int num){
 		return preguntas[num];
 	}
-	/*
+
 	const Pregunta & ConjuntoPreguntas::operator [](const int num)const{
   		return preguntas[num];
 	}
-	*/
 /*
-	void ConjuntoPreguntas::Add(const string & nueva){
+	void ConjuntoPreguntas::Add(const Pregunta & nueva){
 
 		preguntas. = nueva;
 		num_preguntas++;
 	}*/
 
-/*	bool ConjuntoPreguntas::Esta(const string & nueva){
+/*	bool ConjuntoPreguntas::Esta(const Pregunta & nueva){
 		for(int i = 0; i < Size(); i++){
 			if(preguntas[i] == nueva){
 				return true;
@@ -54,11 +53,10 @@ private:
 	}
 
 	void ConjuntoPreguntas::Borra_preg(int indice){
-		vector<Pregunta>:: iterator it = preguntas.begin();
-		preguntas.erase(it + indice);
+		preguntas.erase(indice);
 	}
-	void ConjuntoPreguntas::del(Pregunta p){
-		//Comprobar el indice de la pregunta
+	void del(Pregunta p){
+		//COmpribar el indice de la pregunta
 		bool notfound = true;
 		int i;
 		for(i = 0; i < preguntas.size() && notfound; i++){
@@ -66,16 +64,15 @@ private:
 				notfound = false;
 			}
 		}
-		vector<Pregunta>::iterator it = preguntas.begin();
 		if(!notfound){
-			preguntas.erase(it + i);
+			preguntas.erase(i);
 		}
 	}
 
 //};
-/*
+
 istream & operator >> (istream & is, ConjuntoPreguntas & conj){
-	string preg;
+	Pregunta preg;
 	getline(is, preg)
 	int num;
 	cin >> num;
@@ -95,4 +92,3 @@ ostream & operator << (ostream & os, ConjuntoPreguntas & conj){
 	return os;
 }
 
-*/

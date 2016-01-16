@@ -4,10 +4,11 @@
 #include <vector>
 #include <cassert>
 #include "Pregunta.h"
+using namespace std;
 /**
 * @file ConjuntoPreguntas.h
-* @brief Clase ConjuntoPregunta, en ella abstraemos el TDA ConjuntoPreguntacon los siguientes atributos:
-*Segun mi definicion del TDA ConjuntoPreguntase compone de un map de int Pregunta
+* @brief Clase ConjuntoPregunta, en ella abstraemos el TDA Conjuntostringcon los siguientes atributos:
+*Segun mi definicion del TDA Conjuntostringse compone de un map de int Pregunta
 **/
 class ConjuntoPreguntas{
 private:
@@ -22,7 +23,7 @@ private:
 /**
 * @brief Copia
 *copia los datos de un conjunto a otro
-* @param otro: Preguntaa copiar
+* @param otro: stringa copiar
 **/
 	void Copia(const ConjuntoPreguntas & otro);
 /**
@@ -50,23 +51,24 @@ public:
 /**
 * @brief Operador de acceso, Devuelve el valor del vector en la posicion deseada, este operador permite modificacion
 * @param num: posicion del vector que queremos consultar
-* @return Pregunta&
+* @return string&
 **/
 	Pregunta& operator [] (const int num);
 /**
 * @brief Operador de acceso. Devuelve el valor del vector en la posicion deseada, este operador NO permite modificacion
 * @param num: posicion del vector que queremos consultar
-* @return Pregunta&
+* @return string&
 **/
-	const Pregunta& operator [] (const int num)const;
-
+/*
+	const string& operator [] (const int num)const;
+*/
 /**
 * @brief Esta
-* Metodo que comprueba si una Preguntase encuentra en el conjunto
-* @param nueva: Preguntaque comprobamos
+* Metodo que comprueba si una stringse encuentra en el conjunto
+* @param nueva: stringque comprobamos
 * @return true | false
 **/
-	bool Esta(const Pregunta& nueva);
+	bool Esta(const string& nueva);
 /**
 * @brief Size
 *Devuelve el tamaño utilizado del conjunto
@@ -84,7 +86,7 @@ public:
 	friend istream & operator >> (istream & is, ConjuntoPreguntas & conj);
 /**
 * @brief Sobrecarga del operador de salida
-*lee una Preguntade un flujo de salida
+*lee una stringde un flujo de salida
 * @param os: flujo de salida
 * @param conj: conjunto a escribir
 * @return devuelve una referencia al flujo de salida
@@ -97,6 +99,9 @@ public:
 **/
 void Borra_preg(int indice);
 void del(Pregunta p);
+void insert(Pregunta p){
+	preguntas.push_back(p);
+}
 };
 /**
 * @brief Sobrecarga del operador de entrada
@@ -108,7 +113,7 @@ void del(Pregunta p);
 istream & operator >> (istream & is, ConjuntoPreguntas & conj);
 /**
 * @brief Sobrecarga del operador de salida
-*lee una Preguntade un flujo de salida
+*lee una stringde un flujo de salida
 * @param os: flujo de salida
 * @param conj: conjunto a escribir
 * @return devuelve una referencia al flujo de salida
