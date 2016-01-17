@@ -23,11 +23,11 @@ int main(int argc,char *argv[]){
   ifstream f(argv[1],ios::in);
   // QuitaComentarios(f);
   
-  Pregunta ask;
+  ConjuntoPreguntas ask;
   f>>ask;
   
   
-  Persona People;
+  ConjuntoPersonas People;
   f>>People;
   
   
@@ -53,32 +53,32 @@ int main(int argc,char *argv[]){
   
     if (it_tree.Hoja() && (*it_tree)!=-1){
       ArbolGeneral<int>::Nodo nod = it_tree.GetNodo();
-      cout<<"***************\nPersonaje: "<<People.GetPersona(*it_tree).GetNombre()<<endl;
+      cout<<"***************\nPersonaje: "<<People[*it_tree].get_name()<<endl;
       cout<<"Preguntas y contestaciones son:"<<endl;
-      Pregunta::iterator itask=ask.end(); --itask;
+ /*     ConjuntoPreguntas::iterator itask=ask.end(); --itask;
       
-      Pregunta::iterator itask_prev=ask.end();
-      string codigo(ask.NumPreguntas(),'0');
-      int pos = ask.NumPreguntas()-1;
+      ConjuntoPreguntas::iterator itask_prev=ask.end();*/
+      vector<int> codigo;
+      int pos = ask.Size()-1;
       do{
-	cout<<(*itask);
+	cout<<ask[pos];
 	if (nod==ab.hijomasizquierda(ab.padre(nod))){
 	  cout<<"Si"<<endl;
-	  codigo[pos]='1';
+	  codigo.push_back(1);
 	}  
 	else{ 
 	  cout<<"No"<<endl;
-	  codigo[pos]='0';
+	  codigo.push_back(0);
 	  
 	} 
-	itask_prev=itask;
-       --itask;	
+/*	itask_prev=itask;
+       --itask;*/	
         pos--;
 	nod=ab.padre(nod);
-      }while (itask_prev!=ask.begin());
-      cout<<"Codigo asociado "<<codigo<<endl;
+      }while (pos!=0);
+      // cout<<"Codigo asociado "<<codigo<<endl;
       //Le ponemos al personaje el codigo
-      People.GetPersona(*it_tree).SetCodigoRespuestas(codigo);
+      People[*it_tree].set_info(codigo);
       
       
     }

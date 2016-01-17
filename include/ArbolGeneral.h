@@ -492,6 +492,10 @@ class ArbolGeneral{
 	 
 	 
 	 int getlevel()const;
+
+   Nodo GetNodo(){
+      return it.get_it();
+     }
 	   
 	 /**
 	  * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
@@ -584,11 +588,14 @@ class ArbolGeneral{
 	 const_iter_preorden & operator ++();
 
 	 bool Hoja(){
-	 	if(it->izqda == 0 && if->drcha == 0){
+	 	if(it->izqda == 0 && it->drcha == 0){
 	 		return true;
 	 	}
 	 	return false;
 	 }
+   Nodo GetNodo(iter_preorden it){
+      return it.get_it();
+     }
 	    
 	 /**
 	  * @brief Compara dos iteradores
@@ -627,9 +634,6 @@ class ArbolGeneral{
 	 *@brief Devuelve un puntero a nodo.
 	 *@param el puntero es un iterador que está sobre el nodo que buscamos
      */
-     Nodo getnodo(iter_preorden it){
-     	return it.get_it();
-     }
 
     
 };

@@ -714,9 +714,6 @@
      * @brief Inicializa un iterador a la raiz del arbol. Nivel -1
      */
     template<class T>
-    
-
-
      typename ArbolGeneral<T>::iter_preorden ArbolGeneral<T> :: begin(){
       return iter_preorden(laraiz);
      }
