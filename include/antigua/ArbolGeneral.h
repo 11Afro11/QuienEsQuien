@@ -436,7 +436,7 @@ class ArbolGeneral{
       */
     template<class U> 
     friend std::istream& operator>>(std::istream& in, ArbolGeneral<U>& v);
-    /*
+    /**
       * @brief Operador de inserción en flujo
       * @param out Stream de salida
       * @param v Árbol que escribir
@@ -478,12 +478,7 @@ class ArbolGeneral{
 	  * */
 	 
 	 T & operator*();
-	 /**
-	  *@brief Retorna el puntero al nodo
-	  */
-	  Nodo get_it(){
-	  	return it;
-	  }
+	 
 	 
 	 /**
 	  * @brief Obtiene el nivel del nodo
@@ -608,14 +603,6 @@ class ArbolGeneral{
      */
      iter_preorden end();
      const_iter_preorden end()const; 
-     /**
-	 *@brief Devuelve un puntero a nodo.
-	 *@param el puntero es un iterador que está sobre el nodo que buscamos
-     */
-     Nodo getnodo(iter_preorden it){
-     	return it.get_it();
-     }
-
     
 };
 

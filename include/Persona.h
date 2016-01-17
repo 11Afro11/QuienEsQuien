@@ -1,4 +1,4 @@
-//Definición de la clase persona
+//Definición de la clase Persona
 //Personas.h
 #ifndef PERSONAS_H
 #define PERSONAS_H
@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-class persona{
+class Persona{
 	private:
 		string name;
 		vector<int> info;
@@ -18,20 +18,20 @@ class persona{
 		*@param Los parámetros de este constructor son todos 
 		*los atributos privados de la clase Persona
 		*/
-		persona(vector<int> v, string n, string path){
+		Persona(vector<int> v, string n, string path){
 			if(v.size() == 17){
 				info = v;
 				name = n;
 				path_imagen = path;
 			}
 		}
-		persona(){
+		Persona(){
 		}
 		/*
 		/@brief A continuación se define un método que responde a las reguntas
-		*que se hacen acerca de la persona.
+		*que se hacen acerca de la Persona.
 		*@param Se le pasa como parámetro la pregunta, codificada con un número.
-		*@return Devuelve verdadero o falso según si encaja el personaje con la 
+		*@return Devuelve verdadero o falso según si encaja el Personaje con la 
 		*pregunta hecha.
 		*/
 		int get_info(int codigo){
@@ -57,7 +57,7 @@ class persona{
 		int& operator [] (int indice){
 			return info[indice];
 		}
-		bool operator == (persona p){
+		bool operator == (Persona p){
 			bool iguales = false;
 			if(info == p.info){
 				if(name == p.name){
@@ -70,6 +70,6 @@ class persona{
 		}
 
 };
-istream& operator >> (istream &flujo, persona &p);
-ostream& operator << (ostream &flujo, persona &p);
+istream& operator >> (istream &flujo, Persona &p);
+ostream& operator << (ostream &flujo, Persona &p);
 #endif

@@ -9,4 +9,3 @@ git commit -m "$1"
 fi
 git push
 
-Leer más: http://www.monografias.com/trabajos50/ejercicios-shell-script/ejercicios-shell-script2.shtml#ixzz3xEo7PuH3
