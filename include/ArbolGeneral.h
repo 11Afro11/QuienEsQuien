@@ -522,6 +522,14 @@ class ArbolGeneral{
 	    }
 	    return *this;
 	 }  
+
+	 bool Hoja(){
+	 	if(it->izqda == 0 && it->drcha == 0){
+	 		return true;
+	 	}
+	 	return false;
+	 }
+
 	 /**
 	  * @brief Compara dos iteradores
 	  * @param i: iterador con el  que se compara
@@ -574,6 +582,13 @@ class ArbolGeneral{
 	  * 
 	  * */
 	 const_iter_preorden & operator ++();
+
+	 bool Hoja(){
+	 	if(it->izqda == 0 && if->drcha == 0){
+	 		return true;
+	 	}
+	 	return false;
+	 }
 	    
 	 /**
 	  * @brief Compara dos iteradores
