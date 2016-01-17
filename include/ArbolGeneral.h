@@ -481,7 +481,7 @@ class ArbolGeneral{
 	 /**
 	  *@brief Retorna el puntero al nodo
 	  */
-	  Nodo get_it(){
+	  Nodo GetNodo(){
 	  	return it;
 	  }
 	 
@@ -492,10 +492,6 @@ class ArbolGeneral{
 	 
 	 
 	 int getlevel()const;
-
-   Nodo GetNodo(){
-      return it.get_it();
-     }
 	   
 	 /**
 	  * @brief Obtiene un iterador al siguiente nodo segun el recorrido en preorden
@@ -593,8 +589,8 @@ class ArbolGeneral{
 	 	}
 	 	return false;
 	 }
-   Nodo GetNodo(iter_preorden it){
-      return it.get_it();
+   const Nodo GetNodo(iter_preorden it){
+      return it;
      }
 	    
 	 /**
