@@ -571,7 +571,7 @@
     * */
      template<class T>
    T& ArbolGeneral<T>::iter_preorden:: operator*(){
-    return it->elemento;
+    return it->etiqueta;
    }
    
    

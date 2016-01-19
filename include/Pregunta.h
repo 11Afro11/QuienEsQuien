@@ -18,7 +18,6 @@ private:
 * Atributos privados
 **/
 	string pregunta;
-	int num;
 
 
 /**
@@ -50,23 +49,11 @@ public:
 **/
 	string getPregunta()const;
 /**
-* @brief getNumResp
-* Metodo que devuelve el numero de respuestas
-* @return devuelve un int con el numero de respuesta
-**/
-	int getNum()const;
-/**
 * @brief setPregunta
 * Metodo que asigna el enunciado de una pregunta
 * @param ask: string de la pregunta
 **/
 	void setPregunta(string ask);
-/**
-* @brief setNumResp
-* Metodo que asigna el numero de respuestas
-* @param num: numero de respuestas
-**/
-	void setNum(int num);
 /**
 * @brief sobrecarga del operador de asignacion
 * @param otra: Pregunta a asiganar

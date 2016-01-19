@@ -42,6 +42,7 @@ int main(int argc,char *argv[]){
       cout<<"No puedo abrir el fichero "<<str<<endl;
   }
   ArbolGeneral<int> ab;
+  cout << "\nhe llegado\n";
   farbol>>ab;
   cout<<"Leido el arbol con las descripciones de los personajes"<<endl;
   

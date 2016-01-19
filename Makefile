@@ -5,19 +5,42 @@ LIB 	= lib
 DOC 	= doc
 INCLUDE = include
 
-CXX = g++ -Ofast
-CC = gcc -Ofast
+# CXX = g++ -Ofast
+# CC = gcc -Ofast
 
-LDFLAGS =
-CPPFLAGS = -Wall -g -c
+# LDFLAGS = -I$(INCLUDE)
+# CPPFLAGS = -Wall -g -c
 
-OBJECTS = test ConjuntoPreguntas ConjuntoPreguntas Pregunta Persona
+# OBJECTS = test ConjuntoPreguntas ConjuntoPreguntas Pregunta Persona
 
-all: preambulo $(OBJECTS)
+NAME = QuienEsQuien
 
-$(OBJECTS):
-	$(CXX) -o $(BIN)/$@ $(SRC)/$@.cpp -I$(INCLUDE) $(LDFLAGS)
+all: preambulo $(BIN)/test
 
+# $(OBJECTS):
+# 	$(CXX) -o $(BIN)/$@ $(SRC)/$@.cpp -I$(INCLUDE) $(LDFLAGS)
+
+
+
+$(BIN)/test: $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o
+	g++ -o $(BIN)/test $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o 
+
+
+
+$(OBJ)/test.o: $(SRC)/test.cpp $(INCLUDE)/ConjuntoPreguntas.h $(INCLUDE)/ConjuntoPersonas.h $(INCLUDE)/Pregunta.h $(INCLUDE)/Persona.h
+	g++ -c -g -o $(OBJ)/test.o $(SRC)/test.cpp -I$(INCLUDE)
+
+$(OBJ)/ConjuntoPreguntas.o: $(SRC)/ConjuntoPreguntas.cpp $(INCLUDE)/ConjuntoPreguntas.h 
+	g++ -c -g -o $(OBJ)/ConjuntoPreguntas.o $(SRC)/ConjuntoPreguntas.cpp -I$(INCLUDE)
+
+$(OBJ)/ConjuntoPersonas.o: $(SRC)/ConjuntoPersonas.cpp $(INCLUDE)/ConjuntoPersonas.h 
+	g++ -c -g -o $(OBJ)/ConjuntoPersonas.o $(SRC)/ConjuntoPersonas.cpp -I$(INCLUDE)
+
+$(OBJ)/Pregunta.o: $(SRC)/Pregunta.cpp $(INCLUDE)/Pregunta.h 
+	g++ -c -g -o $(OBJ)/Pregunta.o $(SRC)/Pregunta.cpp -I$(INCLUDE)
+
+$(OBJ)/Persona.o: $(SRC)/Persona.cpp $(INCLUDE)/Persona.h 
+	g++ -c -g -o $(OBJ)/Persona.o $(SRC)/Persona.cpp -I$(INCLUDE)
 #................................................
 preambulo:
 	@echo

@@ -471,6 +471,11 @@ class ArbolGeneral{
 	  * 
 	  * */
 	 iter_preorden();
+
+   iter_preorden(Nodo root){
+    it = root;
+    raiz = root;
+   }
 	 
 	 /**
 	  * @brief Obtiene la etiqueta del nodo
@@ -560,6 +565,11 @@ class ArbolGeneral{
 	  * 
 	  * */
 	 const_iter_preorden();
+
+   const_iter_preorden(Nodo root){
+    it = root;
+    raiz = root;
+   }
 	 
 	 /**
 	  * @brief Obtiene la etiqueta del nodo

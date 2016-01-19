@@ -8,7 +8,6 @@ class ConjuntoPreguntas{
 private:
 
 	string * preguntas
-		int num_preguntas;
 	int tam;
 */
 
@@ -28,17 +27,16 @@ private:
 	Pregunta & ConjuntoPreguntas::operator [](const int num){
 		return preguntas[num];
 	}
-	/*
-	const Pregunta & ConjuntoPreguntas::operator [](const int num)const{
+
+	Pregunta ConjuntoPreguntas::operator [](const int num)const{
   		return preguntas[num];
 	}
-	*/
-/*
-	void ConjuntoPreguntas::Add(const string & nueva){
 
-		preguntas. = nueva;
-		num_preguntas++;
-	}*/
+
+	void ConjuntoPreguntas::Add(const Pregunta & nueva){
+
+		preguntas.push_back(nueva);
+	}
 
 /*	bool ConjuntoPreguntas::Esta(const string & nueva){
 		for(int i = 0; i < Size(); i++){
@@ -73,26 +71,25 @@ private:
 	}
 
 //};
-/*
+
 istream & operator >> (istream & is, ConjuntoPreguntas & conj){
-	string preg;
-	getline(is, preg)
+	string trash;
+	getline(is, trash);
+	Pregunta preg;
 	int num;
-	cin >> num;
-	getline(is,preg);
+	is >> num;
+	getline(is,trash);
 	for(int i = 0; i < num; i++){
-		getline(is, preg);
-		preguntas.push_back();
+		is >> preg;
+		conj.Add(preg);
 	}
 	return is;
 }
 
 
-ostream & operator << (ostream & os, ConjuntoPreguntas & conj){
+ostream & operator << (ostream & os, const ConjuntoPreguntas & conj){
 	for(int i = 0; i < conj.Size(); i++){
 		os << conj[i]<<endl;
 	}
 	return os;
 }
-
-*/

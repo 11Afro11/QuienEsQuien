@@ -54,6 +54,8 @@ public:
 * @return string&
 **/
 	Pregunta& operator [] (const int num);
+
+	Pregunta operator [] (const int num)const;
 /**
 * @brief Operador de acceso. Devuelve el valor del vector en la posicion deseada, este operador NO permite modificacion
 * @param num: posicion del vector que queremos consultar
@@ -62,13 +64,15 @@ public:
 /*
 	const string& operator [] (const int num)const;
 */
+
+	void Add(const Pregunta & nueva);
 /**
 * @brief Esta
 * Metodo que comprueba si una stringse encuentra en el conjunto
 * @param nueva: stringque comprobamos
 * @return true | false
-**/
-	bool Esta(const string& nueva);
+*
+	bool Esta(const string& nueva);*/
 /**
 * @brief Size
 *Devuelve el tamaño utilizado del conjunto
@@ -91,7 +95,7 @@ public:
 * @param conj: conjunto a escribir
 * @return devuelve una referencia al flujo de salida
 **/
-	friend ostream & operator << (ostream & os, ConjuntoPreguntas & conj);
+	friend ostream & operator << (ostream & os, const ConjuntoPreguntas & conj);
 
 /**
 *@brief Borra una pregunta del conjunto de preguntas
@@ -118,5 +122,5 @@ istream & operator >> (istream & is, ConjuntoPreguntas & conj);
 * @param conj: conjunto a escribir
 * @return devuelve una referencia al flujo de salida
 **/
-ostream & operator << (ostream & os, ConjuntoPreguntas & conj);
+ostream & operator << (ostream & os, const ConjuntoPreguntas & conj);
 #endif
