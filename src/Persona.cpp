@@ -3,7 +3,8 @@
 
 istream& operator >> (istream &flujo, Persona &p){
 	//Como antes de cada nombre hay una linea con '#'
-	string aux;
+	/*string aux;
+	getline(flujo,aux);
 	while(aux[0] != '#' && aux[0] != '\n'){
 		getline(flujo,aux);
 	}
@@ -14,9 +15,16 @@ istream& operator >> (istream &flujo, Persona &p){
 	getline(flujo, name, '\n');
 	getline(flujo, path_imagen,'\n');
 	p.set_name(name);
-	p.set_path(path_imagen);
+	p.set_path(path_imagen);*/
 
+	string aux;	
+	getline(flujo, aux);
+	p.set_name(aux);
+	getline(flujo, aux);
+	p.set_path(aux);
+	return flujo;
 }
 ostream& operator << (ostream &flujo, Persona &p){
 	flujo << p.get_name();
+	return flujo;
 }

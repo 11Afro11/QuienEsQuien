@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <sstream>
+#include <unistd.h>
 #include "ArbolGeneral.h"
 #include "ConjuntoPersonas.h"
 #include "Pregunta.h"
@@ -22,6 +23,7 @@ int main(int argc,char *argv[]){
   }
   ifstream f(argv[1],ios::in);
   // QuitaComentarios(f);
+  // ifstream f2(argv[1],ios::in);
   
   ConjuntoPreguntas ask;
   f>>ask;
@@ -29,6 +31,7 @@ int main(int argc,char *argv[]){
   
   ConjuntoPersonas People;
   f>>People;
+  cout << People;
   
   
   // QuitaComentarios(f);
@@ -52,8 +55,9 @@ int main(int argc,char *argv[]){
   
   while (it_tree!=ab.end()){
   	// cout << ab;
-  	cout<< it_tree.Hoja()<<endl;
-    if (/*it_tree.Hoja() && */(*it_tree)!=-1){
+  	/*cout << it_tree.Hoja()<<" ";
+  	cout <<(*it_tree)<<endl;*/
+    if (it_tree.Hoja() /*&& (*it_tree)!=-1*/){
     	cout << "despues de if\n";
       ArbolGeneral<int>::Nodo nod = it_tree.GetNodo();
       cout<<"***************\nPersonaje: "<<People[*it_tree].get_name()<<endl;
@@ -87,6 +91,9 @@ int main(int argc,char *argv[]){
     }
     
     ++it_tree;
+    /*cout << "me cagoentoooooooooo"<<endl;
+    cout << (*it_tree);*/
+    // sleep(1);
   }
   
   
