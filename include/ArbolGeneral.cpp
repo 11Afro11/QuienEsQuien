@@ -129,7 +129,7 @@
     template<class T>
     void ArbolGeneral<T> :: lee_arbol(std::istream& in, nodo *& nod){
       char letra;
-      in >> letra;
+      letra=in.get();
       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       //He sustituido c por letra
       //if(c == 'n')
@@ -138,12 +138,18 @@
         in >> nod->etiqueta;
         lee_arbol(in, nod->izqda);
         lee_arbol(in, nod->drcha);
-        if(nod->izqda != 0)
+        if(nod->izqda != 0){
           nod->izqda->padre = nod;
-        if(nod->drcha != 0)
-          nod->drcha->padre = nod;
+           nodo * aux = nod->drcha;
+           while (aux!=0){
+        
+              aux ->padre = nod->padre;
+              aux =aux->drcha;
+           }
+        }
+           
       }
-      else
+      else if (letra=='x')
         nod = 0;
     }
 
@@ -351,7 +357,7 @@
         laraiz->padre = 0;
     }
     
-    /**
+    /**O
       * @brief Podar subárbol hijo más a la izquierda
       * @param n Nodo al que se le podará la rama hijo más a la izquierda. 
       * @param dest Árbol que recibe la rama cortada
@@ -715,11 +721,20 @@
      */
     template<class T>
      typename ArbolGeneral<T>::iter_preorden ArbolGeneral<T> :: begin(){
-      return iter_preorden(laraiz);
+      typename ArbolGeneral<T>::iter_preorden iter;
+      iter.it = laraiz;
+      iter.raiz = laraiz;
+      iter.level = 0;
+      return iter;
+
      }
      template <class T>
      typename ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T> :: begin()const  {
-      return const_iter_preorden(laraiz);
+      typename ArbolGeneral<T>::const_iter_preorden iter;
+      iter.it = laraiz;
+      iter.raiz = laraiz;
+      iter.level = 0;
+      return iter;
      } 
      
      
@@ -728,11 +743,19 @@
      */
     template<class T>
      typename ArbolGeneral<T>::iter_preorden ArbolGeneral<T>::end(){
-      return iter_preorden(ArbolGeneral<T>::Nodo());
+      typename ArbolGeneral<T>::iter_preorden iter;
+      iter.it = 0;
+      iter.raiz = laraiz;
+      iter.level = 0;
+      return iter;
      }
      template <class T>
      typename ArbolGeneral<T>::const_iter_preorden ArbolGeneral<T>::end()const{
-      return const_iter_preorden(ArbolGeneral<T>::Nodo());      
+      typename ArbolGeneral<T>::const_iter_preorden iter;      
+      iter.it = 0;
+      iter.raiz = laraiz;
+      iter.level = 0;
+      return iter;
      }
 
     

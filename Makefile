@@ -90,7 +90,7 @@ clean:
 	@echo 
 
 zip:
-	zip -l $(NAME).zip  ./* src/*.cpp include/*.h datos/*.txt datos/*.jpg datos/* ./$(NAME).mak
+	zip -l $(NAME).zip  ./* src/*.cpp include/*.h include/*.cpp datos/*.txt datos/*.jpg datos/* ./$(NAME).mak
 
 doxygen:
 	doxygen

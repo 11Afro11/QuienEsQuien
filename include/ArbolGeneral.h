@@ -529,7 +529,7 @@ class ArbolGeneral{
 	 }  
 
 	 bool Hoja(){
-	 	if(it->izqda == 0 && it->drcha == 0){
+	 	if(it->izqda == 0){
 	 		return true;
 	 	}
 	 	return false;
@@ -594,7 +594,7 @@ class ArbolGeneral{
 	 const_iter_preorden & operator ++();
 
 	 bool Hoja(){
-	 	if(it->izqda == 0 && it->drcha == 0){
+	 	if(it->izqda == 0){
 	 		return true;
 	 	}
 	 	return false;

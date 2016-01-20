@@ -15,7 +15,7 @@ using namespace std;
   
 int main(int argc,char *argv[]){
     
-  if ((argc!=2)){
+  if ((argc!=3)){
       cout<<"Dime el nombre del fichero de configuracion"<<endl;
   
       return 0;
@@ -25,21 +25,21 @@ int main(int argc,char *argv[]){
   
   ConjuntoPreguntas ask;
   f>>ask;
-  
+  cout << ask;
   
   ConjuntoPersonas People;
   f>>People;
   
   
   // QuitaComentarios(f);
-  string str;
+  // string str;
   //Leemos el fichero con el arbol
   
-  f>>str;
+  // cin>>str;
   //Abrimos el fichero con el arbol
-  ifstream farbol(str.c_str());
+  ifstream farbol(argv[2]);
   if (!farbol){
-      cout<<"No puedo abrir el fichero "<<str<<endl;
+      cout<<"No puedo abrir el fichero "<<endl;
   }
   ArbolGeneral<int> ab;
   cout << "\nhe llegado\n";
@@ -51,8 +51,10 @@ int main(int argc,char *argv[]){
   ArbolGeneral<int>::iter_preorden it_tree=ab.begin();
   
   while (it_tree!=ab.end()){
-  
-    if (it_tree.Hoja() && (*it_tree)!=-1){
+  	// cout << ab;
+  	cout<< it_tree.Hoja()<<endl;
+    if (/*it_tree.Hoja() && */(*it_tree)!=-1){
+    	cout << "despues de if\n";
       ArbolGeneral<int>::Nodo nod = it_tree.GetNodo();
       cout<<"***************\nPersonaje: "<<People[*it_tree].get_name()<<endl;
       cout<<"Preguntas y contestaciones son:"<<endl;
