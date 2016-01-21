@@ -154,7 +154,7 @@
       }
       else if (letra=='x')
         nod = 0;
-      else cin.get();
+      else in.get();
     }
 
     /**
