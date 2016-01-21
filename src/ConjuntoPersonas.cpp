@@ -48,29 +48,30 @@ ostream& operator << (ostream &flujo, ConjuntoPersonas &conj){
 	for(int i = 0; i < conj.get_size(); i++){
 		Persona p;
 		p = conj.get_Persona(i);
-		flujo << p<<endl;
+		flujo << p;
+		flujo <<endl;
 	}
 	return flujo;
 }
+	
 istream& operator >> (istream &flujo, ConjuntoPersonas &conj){
 	
 	string aux; //Guarda el contenido de una linea del flujo de entrada
 	Persona p;
-	int n_per;
-	//Hay que situar el flujo en el primer nombre
-	getline(flujo, aux);
-	while(aux != "#PERSONAJES"){
-		getline(flujo,aux);
-	}
-	flujo >> n_per;
-	getline(flujo, aux);
-	/*getline(flujo, aux);
-	getline(flujo, aux);
-	getline(flujo, aux);*/
-	while(aux[1] != 'n' && aux[0] != '\n'){
-		getline(flujo, aux);
-	}
-	/*char n[1];
+	int n_per = 0;
+	
+	flujo>>n_per;
+	cout<<"Numero de personas "<<n_per<<endl;
+	QuitaComment(flujo);
+	for(int i = 0; i < n_per;i++){
+		flujo >> p;
+
+		conj.aniade_Persona(p);
+	}		
+	  
+	 cout<<"Numero de personas "<<conj.get_size()<<endl;
+	/*
+	char n[1];
 	getline(flujo, aux);
 	int i = 0;
 	//Obtener el numero de Personajes
@@ -85,19 +86,16 @@ istream& operator >> (istream &flujo, ConjuntoPersonas &conj){
 		i++;
 		
 		
-	}*/
+	}
 	
-	// getline(flujo,aux);
+	getline(flujo,aux);
 	
-	for(int i = 0; i < n_per;i++){
+	for(i = 0; i < n_per;i++){
 
 		flujo >> p;
-		getline(flujo, aux);
-		while(aux[0] != '#' && aux[0] != '\n'){
-			getline(flujo, aux);
-		}
 
 		conj.aniade_Persona(p);
-	}	
+	}*/
 	return flujo;
+	
 }

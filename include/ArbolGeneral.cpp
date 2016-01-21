@@ -135,15 +135,18 @@
       //if(c == 'n')
       if(letra == 'n'){
         nod = new nodo;
+	nod->padre=0;
+	nod->drcha=0; 
+	nod->izqda=0;
         in >> nod->etiqueta;
         lee_arbol(in, nod->izqda);
         lee_arbol(in, nod->drcha);
         if(nod->izqda != 0){
           nod->izqda->padre = nod;
-           nodo * aux = nod->drcha;
-           while (aux!=0){
+           nodo * aux = nod->izqda;
+           while (aux->drcha!=0){
         
-              aux ->padre = nod->padre;
+              aux ->drcha->padre = nod;
               aux =aux->drcha;
            }
         }
@@ -151,6 +154,7 @@
       }
       else if (letra=='x')
         nod = 0;
+      else cin.get();
     }
 
     /**

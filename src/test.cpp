@@ -3,16 +3,15 @@
 #include <cstdlib>
 #include <ctime>
 #include <sstream>
-#include <unistd.h>
 #include "ArbolGeneral.h"
 #include "ConjuntoPersonas.h"
 #include "Pregunta.h"
-// #include "QuitaComentarios.h"
+ #include "QuitaComentarios.h"
 #include "ConjuntoPreguntas.h"
 #include "Persona.h"
 
 using namespace std;
-  
+
   
 int main(int argc,char *argv[]){
     
@@ -22,19 +21,22 @@ int main(int argc,char *argv[]){
       return 0;
   }
   ifstream f(argv[1],ios::in);
-  // QuitaComentarios(f);
-  // ifstream f2(argv[1],ios::in);
+  QuitaComment(f);
   
   ConjuntoPreguntas ask;
   f>>ask;
-  cout << ask;
+  
+  // cout<<"Leida las preguntas"<<endl;
   
   ConjuntoPersonas People;
+   QuitaComment(f);
+   
+   
   f>>People;
   cout << People;
+   
   
-  
-  // QuitaComentarios(f);
+  QuitaComment(f);
   // string str;
   //Leemos el fichero con el arbol
   
@@ -45,7 +47,7 @@ int main(int argc,char *argv[]){
       cout<<"No puedo abrir el fichero "<<endl;
   }
   ArbolGeneral<int> ab;
-  cout << "\nhe llegado\n";
+  // cout << "\nhe llegado\n";
   farbol>>ab;
   cout<<"Leido el arbol con las descripciones de los personajes"<<endl;
   
@@ -54,11 +56,10 @@ int main(int argc,char *argv[]){
   ArbolGeneral<int>::iter_preorden it_tree=ab.begin();
   
   while (it_tree!=ab.end()){
-  	// cout << ab;
-  	/*cout << it_tree.Hoja()<<" ";
-  	cout <<(*it_tree)<<endl;*/
-    if (it_tree.Hoja() /*&& (*it_tree)!=-1*/){
-    	cout << "despues de if\n";
+  	// cout<< "antes de if\n";
+  	// cout<<(*it_tree)<<endl;
+    if (it_tree.Hoja() && (*it_tree)!=-1){
+    	// cout << "despues de if\n";
       ArbolGeneral<int>::Nodo nod = it_tree.GetNodo();
       cout<<"***************\nPersonaje: "<<People[*it_tree].get_name()<<endl;
       cout<<"Preguntas y contestaciones son:"<<endl;
@@ -91,9 +92,6 @@ int main(int argc,char *argv[]){
     }
     
     ++it_tree;
-    /*cout << "me cagoentoooooooooo"<<endl;
-    cout << (*it_tree);*/
-    // sleep(1);
   }
   
   

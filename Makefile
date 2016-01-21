@@ -22,8 +22,8 @@ all: preambulo $(BIN)/test
 
 
 
-$(BIN)/test: $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o
-	g++ -o $(BIN)/test $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o 
+$(BIN)/test: $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o $(OBJ)/QuitaComentarios.o
+	g++ -o $(BIN)/test $(OBJ)/test.o $(OBJ)/Persona.o $(OBJ)/ConjuntoPersonas.o $(OBJ)/Pregunta.o $(OBJ)/ConjuntoPreguntas.o $(OBJ)/QuitaComentarios.o
 
 
 
@@ -41,6 +41,9 @@ $(OBJ)/Pregunta.o: $(SRC)/Pregunta.cpp $(INCLUDE)/Pregunta.h
 
 $(OBJ)/Persona.o: $(SRC)/Persona.cpp $(INCLUDE)/Persona.h 
 	g++ -c -g -o $(OBJ)/Persona.o $(SRC)/Persona.cpp -I$(INCLUDE)
+	
+$(OBJ)/QuitaComentarios.o: $(SRC)/QuitaComentarios.cpp $(INCLUDE)/QuitaComentarios.h 
+	g++ -c -g -o $(OBJ)/QuitaComentarios.o $(SRC)/QuitaComentarios.cpp -I$(INCLUDE)
 #................................................
 preambulo:
 	@echo

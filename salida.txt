@@ -1,20 +1,109 @@
-¿Tiene barba?
-¿Tiene bigote?
-¿Es calvo?
-¿Es Claro su color de ojos?
-¿Es Oscuro su color de ojos?
-¿Tiene el pelo Negro?
-¿Tiene el pelo Rubio?
-¿Tiene el pelo Blanco?
-¿Tiene el pelo Pelirrojo?
-¿Tiene el pelo Marron?
-¿Tiene la piel Clara?
-¿Tiene la piel Oscura?
-¿Tiene gafas?
-¿Es Mujer?
-¿Es Hombre?
-¿Es Largo su pelo?
-¿Es Corto su pelo?
+35
+49
+Numero preguntas 17
+32
+194
+Pregunta ¿Tiene barba?
+
+aNADIDA 
+194
+Pregunta ¿Tiene bigote?
+
+aNADIDA 
+194
+Pregunta ¿Es calvo?
+
+aNADIDA 
+194
+Pregunta ¿Es Claro su color de ojos?
+
+aNADIDA 
+194
+Pregunta ¿Es Oscuro su color de ojos?
+
+aNADIDA 
+194
+Pregunta ¿Tiene el pelo Negro?
+
+aNADIDA 
+194
+Pregunta ¿Tiene el pelo Rubio?
+
+aNADIDA 
+194
+Pregunta ¿Tiene el pelo Blanco?
+
+aNADIDA 
+194
+Pregunta ¿Tiene el pelo Pelirrojo?
+
+aNADIDA 
+194
+Pregunta ¿Tiene el pelo Marron?
+
+aNADIDA 
+194
+Pregunta ¿Tiene la piel Clara?
+
+aNADIDA 
+194
+Pregunta ¿Tiene la piel Oscura?
+
+aNADIDA 
+194
+Pregunta ¿Tiene gafas?
+
+aNADIDA 
+194
+Pregunta ¿Es Mujer?
+
+aNADIDA 
+194
+Pregunta ¿Es Hombre?
+
+aNADIDA 
+194
+Pregunta ¿Es Largo su pelo?
+
+aNADIDA 
+194
+Pregunta ¿Es Corto su pelo?
+
+aNADIDA 
+10
+Numero de personas 15
+32
+65
+10
+65
+10
+65
+10
+67
+10
+71
+10
+73
+10
+74
+10
+74
+10
+76
+10
+76
+10
+77
+10
+77
+10
+80
+10
+80
+10
+83
+10
+Numero de personas 15
 Alejandro 
 Alfonso
 Antonio
@@ -30,6 +119,145 @@ Maria
 Paco
 Pepe
 Sonia
-
-he llegado
+100
 Leido el arbol con las descripciones de los personajes
+***************
+Personaje: Cristina
+Preguntas y contestaciones son:
+¿Es Corto su pelo?
+No
+¿Es Largo su pelo?
+Si
+¿Es Hombre?
+No
+¿Es Mujer?
+Si
+¿Tiene gafas?
+No
+¿Tiene la piel Oscura?
+No
+¿Tiene la piel Clara?
+Si
+¿Tiene el pelo Marron?
+No
+¿Tiene el pelo Pelirrojo?
+No
+¿Tiene el pelo Blanco?
+No
+¿Tiene el pelo Rubio?
+No
+¿Tiene el pelo Negro?
+Si
+¿Es Oscuro su color de ojos?
+No
+¿Es Claro su color de ojos?
+Si
+¿Es calvo?
+No
+¿Tiene bigote?
+No
+***************
+Personaje: Sonia
+Preguntas y contestaciones son:
+¿Es Corto su pelo?
+No
+¿Es Largo su pelo?
+Si
+¿Es Hombre?
+No
+¿Es Mujer?
+Si
+¿Tiene gafas?
+No
+¿Tiene la piel Oscura?
+Si
+¿Tiene la piel Clara?
+No
+¿Tiene el pelo Marron?
+No
+¿Tiene el pelo Pelirrojo?
+No
+¿Tiene el pelo Blanco?
+No
+¿Tiene el pelo Rubio?
+No
+¿Tiene el pelo Negro?
+Si
+¿Es Oscuro su color de ojos?
+No
+¿Es Claro su color de ojos?
+Si
+¿Es calvo?
+No
+¿Tiene bigote?
+No
+***************
+Personaje: Laura
+Preguntas y contestaciones son:
+¿Es Corto su pelo?
+No
+¿Es Largo su pelo?
+Si
+¿Es Hombre?
+No
+¿Es Mujer?
+Si
+¿Tiene gafas?
+No
+¿Tiene la piel Oscura?
+No
+¿Tiene la piel Clara?
+Si
+¿Tiene el pelo Marron?
+No
+¿Tiene el pelo Pelirrojo?
+No
+¿Tiene el pelo Blanco?
+No
+¿Tiene el pelo Rubio?
+Si
+¿Tiene el pelo Negro?
+No
+¿Es Oscuro su color de ojos?
+No
+¿Es Claro su color de ojos?
+Si
+¿Es calvo?
+No
+¿Tiene bigote?
+No
+***************
+Personaje: Maria
+Preguntas y contestaciones son:
+¿Es Corto su pelo?
+No
+¿Es Largo su pelo?
+Si
+¿Es Hombre?
+No
+¿Es Mujer?
+Si
+¿Tiene gafas?
+Si
+¿Tiene la piel Oscura?
+No
+¿Tiene la piel Clara?
+Si
+¿Tiene el pelo Marron?
+No
+¿Tiene el pelo Pelirrojo?
+Si
+¿Tiene el pelo Blanco?
+No
+¿Tiene el pelo Rubio?
+No
+¿Tiene el pelo Negro?
+No
+¿Es Oscuro su color de ojos?
+Si
+¿Es Claro su color de ojos?
+No
+¿Es calvo?
+No
+¿Tiene bigote?
+No

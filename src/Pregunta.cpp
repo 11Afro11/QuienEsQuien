@@ -79,6 +79,7 @@ private:
 
 	istream & operator >> (istream & is, Pregunta & una_pregunta){
 		string texto;
+		QuitaComment(is);
 		getline(is, texto);
 		una_pregunta.setPregunta(texto);
 		return is;
@@ -86,5 +87,6 @@ private:
 
 	ostream & operator << (ostream & os, const Pregunta & una_pregunta){
 		os << una_pregunta.getPregunta()<<endl;
+		return os;
 	}
 

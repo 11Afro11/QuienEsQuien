@@ -43,8 +43,9 @@ class ConjuntoPersonas{
 		*/
 		void borra_Persona(int indice);
 		void del (Persona p);
+		friend ostream& operator << (ostream &flujo, ConjuntoPersonas &conj);
+		friend istream& operator >> (istream &flujo, ConjuntoPersonas &conj);
 
 };
-ostream& operator << (ostream &flujo, ConjuntoPersonas &conj);
-istream& operator >> (istream &flujo, ConjuntoPersonas &conj);
+
 #endif

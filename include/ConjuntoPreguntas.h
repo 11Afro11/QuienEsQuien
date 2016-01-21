@@ -1,6 +1,6 @@
 #ifndef CONJUNTOPREGUNTAS
 #define CONJUNTOPREGUNTAS
-
+#include "QuitaComentarios.h"
 #include <vector>
 #include <cassert>
 #include "Pregunta.h"

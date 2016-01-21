@@ -34,8 +34,9 @@ private:
 
 
 	void ConjuntoPreguntas::Add(const Pregunta & nueva){
-
+                cout<<"aNADIDA "<<endl;
 		preguntas.push_back(nueva);
+		
 	}
 
 /*	bool ConjuntoPreguntas::Esta(const string & nueva){
@@ -74,13 +75,15 @@ private:
 
 istream & operator >> (istream & is, ConjuntoPreguntas & conj){
 	string trash;
-	getline(is, trash);
+	QuitaComment(is);
 	Pregunta preg;
 	int num;
 	is >> num;
-	getline(is,trash);
+	cout<<"Numero preguntas "<<num<<endl;
+	QuitaComment(is);
 	for(int i = 0; i < num; i++){
 		is >> preg;
+		cout<<"Pregunta "<<preg<<endl;
 		conj.Add(preg);
 	}
 	return is;
@@ -88,15 +91,8 @@ istream & operator >> (istream & is, ConjuntoPreguntas & conj){
 
 
 ostream & operator << (ostream & os, const ConjuntoPreguntas & conj){
-	
-	/*for(int i = 0; i < conj.Size(); i++){
-		os << conj[i]<<endl;
-	}
-	*/
-	Pregunta p;
 	for(int i = 0; i < conj.Size(); i++){
-		p = conj[i];
-		os << p;
+		os << conj[i]<<endl;
 	}
 	return os;
 }

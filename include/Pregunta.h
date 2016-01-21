@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <map>
+#include "QuitaComentarios.h"
 using namespace std;
 /**
 * @file Pregunta.h

@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "QuitaComentarios.h"
 using namespace std;
 
 class Persona{
@@ -68,8 +69,9 @@ class Persona{
 			}
 			return iguales;
 		}
+		friend istream& operator >> (istream &flujo, Persona &p);
+		friend ostream& operator << (ostream &flujo, Persona &p);
 
 };
-istream& operator >> (istream &flujo, Persona &p);
-ostream& operator << (ostream &flujo, Persona &p);
+
 #endif
